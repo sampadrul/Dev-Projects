@@ -2,6 +2,8 @@ require 'prime'
 
 numbers = 1..1000
 
+#method1
+
 max = 0
 for i in numbers
 	if i.prime? && i.to_s == i.to_s.reverse && i > max
@@ -9,6 +11,8 @@ for i in numbers
 	end
 end
 print max
+
+#method2
 
 max = 0
 for i in numbers
