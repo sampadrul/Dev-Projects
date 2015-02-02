@@ -1,15 +1,17 @@
 def fizzBuzz(x, y, n)
-	arr = []
-	(1...n).each do |i|
+	line = ""
+	(1..n).each do |i|
 		if i % x == 0 && i % y == 0 
-			arr << "B"
-		elsif i % y == 0 || i % x == 0 
-			arr << "F"
+			line << "FB "
+		elsif i % y == 0
+			line << "B "
+		elsif i % x == 0
+			line << "F "
 		else 
-			arr <<  i
+			line <<  i.to_s + " "
 		end
 	end
-	print arr.join(" ")
+	return line.strip
 end
 
 file = ARGV[0]
@@ -17,7 +19,6 @@ file = ARGV[0]
 File.open(file).each do |line|
 	x, y, n = line.split(" ").map(&:to_i)
 	if x.between?(1,20) && x.between?(1,20) && n.between?(21,100)
-		fizzBuzz(x, y, n)
-		print "\n"
+		puts fizzBuzz(x, y, n)
 	end
 end
