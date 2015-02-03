@@ -1,11 +1,12 @@
 def fizzBuzz(x, y, n)
 	line = ""
 	(1..n).each do |i|
-		if i % x == 0 && i % y == 0 
+		case 
+		when i % x == 0 && i % y == 0 
 			line << "FB "
-		elsif i % y == 0
+		when i % y == 0
 			line << "B "
-		elsif i % x == 0
+		when i % x == 0
 			line << "F "
 		else 
 			line <<  i.to_s + " "
