@@ -5,7 +5,7 @@ file = ARGV[0]
 File.open(file).each do |line|
 sequence = 0
 	line.each_char do |l|
-		if l =~ /[A-Za-z]/
+		if l.match(/[A-Za-z]/)
 			if sequence.even?
 				print l.upcase
 				sequence += 1
@@ -26,7 +26,7 @@ file = ARGV[0]
 File.open(file).each do |line|
 sequence = 0
 	line.each_char do |l|
-		if l =~ /[A-Za-z]/
+		if l.match(/[A-Za-z]/)
 			print sequence.even? ? l.upcase : l.downcase
 			sequence += 1
 		else
