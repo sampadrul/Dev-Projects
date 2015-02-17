@@ -16,9 +16,7 @@ File.open(file).each do |line|
 	split_num = line.to_s.gsub(/[^0-9a-z]/i, '').split('')
 	all_numbers = []
 	
-	split_num.map do |x|
-	all_numbers << digits[x.to_i]
-	end	
+	split_num.map { |x|	all_numbers << digits[x.to_i] }	
 	
 	all_numbers.transpose.each { |a| puts "#{a.join}" }
 	
