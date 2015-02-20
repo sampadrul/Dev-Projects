@@ -1,30 +1,25 @@
 def caesar_cipher(string, shifter)
-	ciphered = []
-	string.split("").each do |char|
-		if char == " " then ciphered << char 
-			next 
-		end
-		
-		char = char.to_s.ord
-	
-		if ("a".ord.."z".ord).include? char
-			if char + shifter < "z".ord
-				ciphered.push((char + shifter).chr)
+	ciphered = ""
+	string.each_codepoint do |char|
+		ciphered << case char
+			when "a".ord.."z".ord
+				if char + shifter < "z".ord
+					((char + shifter).chr)
+				else
+					((shifter - ("z".ord - char) + "a".ord).chr)
+				end		
+			when "A".ord.."Z".ord
+				if char + shifter < "Z".ord
+					((char + shifter).chr)
+				else
+					((shifter - ("Z".ord - char) + "A".ord).chr)
+				end	
 			else
-				ciphered.push((shifter - ("z".ord - char) + "a".ord).chr)
-			end			
-		elsif ("A".ord.."Z".ord).include? char
-			if char + shifter < "Z".ord
-				ciphered.push((char + shifter).chr)
-			else
-				ciphered.push((shifter - ("Z".ord - char) + "A".ord).chr)
-			end	
-		else	
-			next
+				char
 		end
-		
 	end
-	print ciphered.join + "\n"
+	ciphered
 end
 
-#test: caesar_cipher("Hello friend my Name is Sam",10)
+puts caesar_cipher("Hello friend my Name is Sam",10)
+		
