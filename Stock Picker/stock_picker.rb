@@ -17,9 +17,9 @@ def stock_picker(prices)
 			end		
 		end
 	end	
+	return [buy_day, sell_day]
 	
-	puts "buy on day #{buy_day}, and sell on day #{sell_day} for a profit of #{profit}"
 		
 end
 
-stock_picker([17,3,6,9,15,8,6,1,10])
+puts stock_picker([17,3,6,9,15,8,6,1,10])
