@@ -93,7 +93,9 @@ def multiple_els(array)
 		array.my_inject { |result_memo, i| result_memo * i }
 end
 
-#array = [1,2,3,4,7,4,3,2,6,6]
+proc = Proc.new { |x| x * 2 }
+
+array = [1,2,3,4,7,4,3,2,6,6]
 
 #array.my_each { |x| puts x ** 2 }
 
@@ -110,4 +112,8 @@ end
 #p array.my_map { |x| x * 2 }
 
 #p array.my_inject(3) { |memo, x| memo + x }
+
 #p multiple_els(array)
+
+#p array.my_map(&proc) 
+
